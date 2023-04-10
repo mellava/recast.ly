@@ -6,7 +6,7 @@ var VideoList = ({videos}) => {
 
   return (
     <div className="video-list">
-      <div><h5><em>{videos.map(video => <VideoListEntry video={video} key={video.id.videoId}/>)}</em> view goes here</h5></div>
+      {videos.map(video => <VideoListEntry video={video} key={video.id.videoId}/>)}
     </div>
   );
 };
