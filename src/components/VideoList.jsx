@@ -1,12 +1,12 @@
 import VideoListEntry from './VideoListEntry.js';
 
-var VideoList = ({videos}) => {
+var VideoList = ({videos, changePlayVideo}) => {
 
 
 
   return (
     <div className="video-list">
-      {videos.map(video => <VideoListEntry video={video} key={video.id.videoId}/>)}
+      {videos.map(video => <VideoListEntry video={video} key={video.id.videoId} changePlayVideo={changePlayVideo}/>)}
     </div>
   );
 };
