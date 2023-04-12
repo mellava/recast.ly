@@ -3,28 +3,19 @@ import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '/src/data/exampleVideoData.js';
 import searchYoutube from '/src/lib/searchYouTube.js';
-// import {_.debounce} from 'lodash';
 
 const {useState, useEffect} = React;
-// const {debounce} = Lodash;
 
 var App = () => {
-  const [videos, setVideos] = useState(exampleVideoData);
-  const [playVideo, setPlayVideo] = useState(exampleVideoData[0]);
+  const [videos, setVideos] = useState([]);
   const [searchField, setSearchField] = useState('');
+  const [playVideo, setPlayVideo] = useState(exampleVideoData[0]);
 
-  const changePlayVideo = ({video}) => (setPlayVideo(video));
-  // const getYoutubeSearchResults = ({searchField}) => (searchYouTube(searchField, setVideos));
+  const changePlayVideo = ({video}) => setPlayVideo(video);
 
   useEffect(() => {
     searchYoutube(searchField, setVideos);
   }, [searchField]);
-
-  const debounceOnChange = _.debounce(() => {
-    searchYoutube(searchField, setVideos);
-    console.log('This is a debounce function');
-  }, 2000);
-
 
   return (
     <div>
